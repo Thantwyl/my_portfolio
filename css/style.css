@@ -1,6 +1,11 @@
-/* Custom styles to complement Tailwind */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -10,11 +15,46 @@ body {
 
 nav {
   transition: background-color 0.3s ease;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+}
+
+#desktop-menu {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  nav {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #desktop-menu {
+    display: flex;
+  }
+  #mobile-menu-toggle {
+    display: none;
+  }
+}
+
+#mobile-menu {
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#mobile-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-link {
   position: relative;
   transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-link::after {
@@ -24,12 +64,47 @@ nav {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: #2dd4bf; /* Teal accent */
+  background-color: #2dd4bf;
   transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.sticky-title {
+  position: sticky;
+  top: 4rem;
+  z-index: 10;
+  background: inherit;
+}
+
+@media (max-width: 767px) {
+  .sticky-title {
+    position: static;
+  }
+}
+
+section {
+  padding-top: 4rem;
+}
+
+@media (max-width: 639px) {
+  section {
+    padding-top: 0;
+  }
+}
+
+#home {
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0; /* Remove top padding to center content */
+}
+
+#home .container {
+  text-align: center; /* Center text horizontally */
 }
 
 .skill-container {
@@ -39,52 +114,49 @@ nav {
 }
 
 .hard-skills {
-  scrollbar-width: thin;
-  scrollbar-color: #2dd4bf #e5e7eb; /* Teal thumb, light gray track */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 rgba(45, 212, 191, 0); /* Initial glow */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .hard-skills::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
 
-.hard-skills::-webkit-scrollbar-track {
-  background: #e5e7eb; /* Light gray */
-  transition: background-color 0.3s ease;
+.soft-skills {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 0.5rem;
+  height: auto;
 }
 
-.hard-skills::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #2dd4bf, #14b8a6); /* Gradient thumb */
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-.hard-skills::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #14b8a6, #0d9488); /* Darker gradient */
-}
-
-[data-theme="dark"] .hard-skills {
-  scrollbar-color: #2dd4bf #1f2937; /* Teal thumb, dark gray track */
-}
-
-[data-theme="dark"] .hard-skills::-webkit-scrollbar-track {
-  background: #1f2937; /* Dark gray */
-}
-
-[data-theme="dark"] .hard-skills::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #2dd4bf, #14b8a6);
-}
-
-[data-theme="dark"] .hard-skills::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #14b8a6, #0d9488);
+[data-theme="dark"] .soft-skills {
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
 }
 
 .skill-item {
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.title-text span, .about-text span {
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+.hard-skill:hover {
+  box-shadow: 0 4px 10px rgba(45, 212, 191, 0.5);
+}
+
+.soft-skill:hover {
+  box-shadow: 0 4px 10px rgba(168, 85, 247, 0.5);
+}
+
+.title-text span, .about-text {
   display: inline-block;
 }
 
@@ -96,76 +168,59 @@ nav {
   transform: scale(1.2);
 }
 
-#theme-toggle {
-  transition: transform 0.3s ease, background 0.3s ease;
+#mobile-menu-toggle {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-#theme-toggle:hover {
-  transform: scale(1.2) rotate(20deg);
+#mobile-menu-toggle:hover {
+  transform: scale(1.2);
 }
 
-.subtitle, .cta-button, .profile-img, .about-text, .project-card, .contact-content, .hard-skills {
-  transition: background-color 0.3s ease, color 0.3s ease;
+#mobile-menu.menu-open {
+  transform: translateX(0);
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+@media (max-width: 639px) {
+  #mobile-menu {
+    top: 4rem;
+    height: auto;
+    max-height: calc(100vh - 4rem);
+    width: 100%;
+    padding: 1rem;
   }
+}
 
-  .min-h-screen {
-    min-height: 80vh;
+@media (min-width: 640px) {
+  #mobile-menu {
+    display: none;
   }
+}
 
-  .nav-link {
-    font-size: 0.9rem;
-  }
+[data-theme="dark"] body {
+  background-color: #0f172a;
+  color: #ffffff;
+}
 
-  .title-text {
-    font-size: 1.8rem !important;
-  }
+[data-theme="dark"] nav {
+  background-color: #111827;
+}
 
-  .subtitle {
-    font-size: 0.9rem !important;
-  }
+[data-theme="dark"] #mobile-menu {
+  background-color: #111827;
+}
 
-  .cta-button {
-    padding: 0.5rem 1.5rem;
-    font-size: 0.9rem;
-  }
+[data-theme="dark"] #home {
+  background: linear-gradient(to right, #14b8a6, #4f46e5);
+}
 
-  .profile-img {
-    width: 8rem !important;
-    height: 8rem !important;
-  }
+[data-theme="dark"] #about, [data-theme="dark"] #skills {
+  background-color: #1f2937;
+}
 
-  .about-text, .contact-content p {
-    font-size: 0.9rem;
-  }
+[data-theme="dark"] #projects, [data-theme="dark"] #contact {
+  background-color: #111827;
+}
 
-  .project-card img {
-    height: 8rem !important;
-  }
-
-  .project-card h3 {
-    font-size: 1.25rem;
-  }
-
-  .skill-container {
-    min-height: 20rem !important;
-  }
-
-  .hard-skills {
-    height: 12rem !important;
-  }
-
-  .skill-item i, .social-icon, #theme-toggle {
-    font-size: 1.25rem !important;
-  }
-
-  .skill-item span {
-    font-size: 0.9rem !important;
-  }
+[data-theme="dark"] footer {
+  background-color: #0f172a;
 }

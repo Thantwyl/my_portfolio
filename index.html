@@ -4,153 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thant Wai Yan Linn</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Lenis CDN for smooth scrolling -->
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <!-- Font Awesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-white transition-colors duration-300">
-  <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-lg z-50">
-    <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-      <div class="text-2xl font-bold text-gray-900 dark:text-white">ThantWaiYanLinn</div>
-      <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-6 space-y-4 sm:space-y-0 mt-4 sm:mt-0">
-        <ul class="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
-          <li><a href="#home" class="nav-link text-base sm:text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Home</a></li>
-          <li><a href="#about" class="nav-link text-base sm:text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">About</a></li>
-          <li><a href="#projects" class="nav-link text-base sm:text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Projects</a></li>
-          <li><a href="#skills" class="nav-link text-base sm:text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Skills</a></li>
-          <li><a href="#contact" class="nav-link text-base sm:text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Contact</a></li>
-        </ul>
-        
+    <div class="container mx-auto px-4 xs:px-4 sm:px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+      <div class="text-2xl xs:text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">ThantWaiYanLinn</div>
+      <div class="flex items-center">
+        <button id="mobile-menu-toggle" class="sm:hidden text-xl xs:text-2xl text-gray-900 dark:text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div id="desktop-menu" class="hidden sm:flex sm:items-center sm:space-x-6">
+          <a href="#home" class="nav-link text-base xs:text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Home</a>
+          <a href="#about" class="nav-link text-base xs:text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">About</a>
+          <a href="#projects" class="nav-link text-base xs:text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Projects</a>
+          <a href="#skills" class="nav-link text-base xs:text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Skills</a>
+          <a href="#contact" class="nav-link text-base xs:text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Contact</a>
+        </div>
       </div>
+    </div>
+    <div id="mobile-menu" class="sm:hidden absolute top-[4rem] left-0 w-full bg-white dark:bg-gray-900 z-40 transform -translate-x-full transition-transform duration-300">
+      <ul class="flex flex-col items-center space-y-4 py-6">
+        <li><a href="#home" class="nav-link text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Home</a></li>
+        <li><a href="#about" class="nav-link text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">About</a></li>
+        <li><a href="#projects" class="nav-link text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Projects</a></li>
+        <li><a href="#skills" class="nav-link text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Skills</a></li>
+        <li><a href="#contact" class="nav-link text-lg text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-500 to-indigo-600">
-    <div class="text-center px-4">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white title-text">Hi, I'm ThantWaiYanLinn</h1>
-      <p class="text-base sm:text-lg md:text-xl mb-6 text-white subtitle">Junior Backend Developer | ICT Internship</p>
-      <a href="#contact" class="inline-block bg-teal-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:bg-indigo-600 transition cta-button">Get in Touch</a>
+  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-500 to-indigo-600 dark:from-teal-500 dark:to-indigo-600">
+    <div class="container mx-auto px-4 xs:px-4 sm:px-6 md:px-8 lg:px-10 text-center">
+      <h1 class="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white dark:text-white title-text">Hi, I'm ThantWaiYanLinn</h1>
+      <p class="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-6 text-white dark:text-white subtitle">Junior Backend Developer | ICT Internship</p>
+      <a href="#contact" class="inline-block bg-teal-600 dark:bg-teal-600 text-white dark:text-white px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2 xs:py-2 sm:py-2.5 md:py-3 rounded-full font-semibold hover:bg-indigo-600 dark:hover:bg-indigo-600 transition cta-button">Get in Touch</a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="min-h-[80vh] sm:min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800 py-12 sm:py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 text-gray-900 dark:text-white">About Me</h2>
-      <div class="flex flex-col items-center max-w-2xl mx-auto gap-6 sm:gap-8">
-        <img src="assets/images/profile.jpg" alt="Profile Photo" class="w-32 h-32 sm:w-48 sm:h-48 rounded-lg object-cover shadow-lg profile-img">
-        <p class="text-base sm:text-lg text-center text-gray-900 dark:text-white about-text">Final-year ICT student with hands-on experience in Python programming and currently learning JSON and Django for web development. Gained basic understanding of databases through coursework and projects. Eager to apply practical skills in a real-world internship, with a strong interest in web development and problem-solving.</p>
+  <section id="about" class="min-h-[60vh] xs:min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800 py-6 xs:py-8 sm:py-12 md:py-16 lg:py-20 pt-16">
+    <div class="container mx-auto px-4 xs:px-4 sm:px-6 md:px-8 lg:px-10">
+      <h2 class="sticky-title text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 xs:mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-900 dark:text-white">About Me</h2>
+      <div class="flex flex-col items-center max-w-2xl mx-auto gap-3 xs:gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+        <img src="assets/images/profile.jpg" alt="Profile Photo" class="w-20 xs:w-24 sm:w-32 md:w-40 lg:w-48 h-20 xs:h-24 sm:h-32 md:h-40 lg:h-48 rounded-lg object-cover shadow-lg profile-img">
+        <p class="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-center text-gray-900 dark:text-white about-text">Final-year ICT student with hands-on experience in Python programming and currently learning JSON and Django for web development. Gained basic understanding of databases through coursework and projects. Eager to apply practical skills in a real-world internship, with a strong interest in web development and problem-solving.</p>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="min-h-[80vh] sm:min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-12 sm:py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 text-gray-900 dark:text-white">My Projects</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-        <!-- Project 1 -->
-        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-          <img src="assets/images/dotnet.jpg" alt="Project 1" class="w-full h-32 sm:h-48 object-cover rounded mb-4">
-          <h3 class="text-xl sm:text-2xl font-semibold mb-2 text-gray-900 dark:text-white">🌐 Full-Stack CRUD Web App</h3>
-          <p class="text-gray-900 dark:text-white">ASP.NET Core, C#, SQL<div>Built a full-stack web app with CRUD features</div></p>
-          <a href="https://github.com/Thantwyl/CRUD_ProductsList_MVC.git" class="text-teal-500 dark:text-teal-300 hover:underline">View Project</a>
+  <section id="projects" class="min-h-[60vh] xs:min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-6 xs:py-8 sm:py-12 md:py-16 lg:py-20 pt-16">
+    <div class="container mx-auto px-4 xs:px-4 sm:px-6 md:px-8 lg:px-10">
+      <h2 class="sticky-title text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 xs:mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-900 dark:text-white">My Projects</h2>
+      <div class="grid grid-cols-1 gap-3 xs:gap-4 sm:gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto">
+        <div class="bg-gray-100 dark:bg-gray-800 p-3 xs:p-4 sm:p-5 md:p-6 rounded-lg shadow-lg project-card">
+          <img src="assets/images/dotnet.jpg" alt="Project 1" class="w-full h-24 xs:h-28 sm:h-32 md:h-40 lg:h-48 object-cover rounded mb-3 xs:mb-4 sm:mb-4 md:mb-4">
+          <h3 class="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-gray-900 dark:text-white">🌐 Full-Stack CRUD Web App</h3>
+          <p class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">ASP.NET Core, C#, SQL<div>Built a full-stack web app with CRUD features</div></p>
+          <a href="https://github.com/Thantwyl/CRUD_ProjectsList_MVC.git" class="text-teal-500 dark:text-teal-300 hover:underline">View Project</a>
         </div>
-        <!-- Project 2 -->
-        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-          <img src="assets/images/ric_faq.png" alt="Project 2" class="w-full h-32 sm:h-48 object-cover rounded mb-4">
-          <h3 class="text-xl sm:text-2xl font-semibold mb-2 text-gray-900 dark:text-white">🧠 FAQ Chatbot System</h3>
-          <p class="text-gray-900 dark:text-white">Python, HTML/CSS<div>Developed a chatbot to answer student FAQs</div></p>
-          <a href="https://ric-gaming-club-faq.vercel.app" class="text-teal-500 dark:text-teal-300 hover:underline">View Project</a>
+        <div class="bg-gray-100 dark:bg-gray-800 p-3 xs:p-4 sm:p-5 md:p-6 rounded-lg shadow-lg project-card">
+          <img src="assets/images/ric_faq.png" alt="Project 2" class="w-full h-24 xs:h-28 sm:h-32 md:h-40 lg:h-48 object-cover rounded mb-3 xs:mb-4 sm:mb-4 md:mb-4">
+          <h3 class="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-gray-900 dark:text-white">🧠 FAQ Chatbot System</h3>
+          <p class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Python, HTML/CSS<div>Developed a chatbot to answer student FAQs</div></p>
+          <a href="https://ric-gaming-club-faq.vercel.app/" class="text-teal-500 dark:text-teal-300 hover:underline">View Project</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="min-h-[80vh] sm:min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800 py-12 sm:py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 text-gray-900 dark:text-white">My Skills</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-        <!-- Hard Skills -->
-        <div class="skill-container min-h-[400px] sm:min-h-[500px]">
-          <h3 class="text-xl sm:text-2xl font-semibold text-teal-600 dark:text-teal-300 mb-6 text-center">Hard Skills</h3>
-          <ul class="hard-skills flex flex-col space-y-2 overflow-y-auto h-[250px] sm:h-[300px]" data-lenis-prevent>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fab fa-python text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Python</span>
+  <section id="skills" class="min-h-[60vh] xs:min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800 py-6 xs:py-8 sm:py-12 md:py-16 lg:py-20 pt-16">
+    <div class="container mx-auto px-4 xs:px-4 sm:px-6 md:px-8 lg:px-10">
+      <h2 class="sticky-title text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 xs:mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-900 dark:text-white">My Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto">
+        <div class="skill-container min-h-[12rem] xs:min-h-[14rem] sm:min-h-[16rem] lg:min-h-[18rem]">
+          <h3 class="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-2xl font-semibold text-teal-600 dark:text-teal-300 mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-center">Hard Skills</h3>
+          <ul class="hard-skills flex flex-col space-y-0.5 overflow-y-auto overflow-x-hidden max-w-[90%] sm:max-w-[80%] md:max-w-[70%] w-full mx-auto max-h-[17.5rem] xs:max-h-[17.5rem] sm:max-h-[17.5rem] md:max-h-[17.5rem] lg:max-h-[17.5rem]" data-lenis-prevent>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-code text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Python</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fab fa-html5 text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">HTML5</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fab fa-html5 text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">HTML</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fab fa-css3-alt text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">CSS3</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fab fa-css3-alt text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">CSS</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fas fa-code text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">VSCode</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-database text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">SQL</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fab fa-microsoft text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">ASP.NET Core</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-braces text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">JSON</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fas fa-gamepad text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Unity</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-leaf text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Django</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fas fa-database text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">SQL</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-cogs text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">ASP .NET Core</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fab fa-git-alt text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Git & GitHub</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-gamepad text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Unity</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fas fa-file-code text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">JSON</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-laptop-code text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">VSCode</span>
             </li>
-            <li class="skill-item hard-skill flex items-center bg-teal-100 dark:bg-teal-900 p-3 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
-              <i class="fab fa-python text-xl sm:text-2xl text-teal-600 dark:text-teal-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Django (Basic)</span>
+            <li class="skill-item hard-skill flex items-center min-w-[120px] sm:min-w-[140px] md:min-w-[160px] bg-gradient-to-r from-teal-100 to-teal-200 dark:from-teal-900 to-teal-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-teal-200 dark:hover:bg-teal-800 transition">
+              <i class="fas fa-code-branch text-sm xs:text-base sm:text-lg md:text-xl text-teal-600 dark:text-teal-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Git & GitHub</span>
             </li>
           </ul>
         </div>
-        <!-- Soft Skills -->
-        <div class="skill-container min-h-[400px] sm:min-h-[500px]">
-          <h3 class="text-xl sm:text-2xl font-semibold text-purple-600 dark:text-purple-300 mb-6 text-center">Soft Skills</h3>
-          <ul class="soft-skills flex flex-col space-y-2">
-            <li class="skill-item soft-skill flex items-center bg-purple-100 dark:bg-purple-900 p-3 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
-              <i class="fas fa-comments text-xl sm:text-2xl text-purple-600 dark:text-purple-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Communication</span>
+        <div class="skill-container min-h-[12rem] xs:min-h-[14rem] sm:min-h-[16rem] lg:min-h-[18rem]">
+          <h3 class="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-2xl font-semibold text-purple-600 dark:text-purple-300 mb-3 xs:mb-4 sm:mb-5 md:mb-6 text-center">Soft Skills</h3>
+          <ul class="soft-skills flex flex-col space-y-0.5 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] w-full mx-auto bg-gradient-to-r from-purple-900/80 to-purple-600/80">
+            <li class="skill-item soft-skill flex items-center bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900 to-purple-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
+              <i class="fas fa-comments text-sm xs:text-base sm:text-lg md:text-xl text-purple-600 dark:text-purple-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Communication</span>
             </li>
-            <li class="skill-item soft-skill flex items-center bg-purple-100 dark:bg-purple-900 p-3 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
-              <i class="fas fa-clock text-xl sm:text-2xl text-purple-600 dark:text-purple-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Time Management</span>
+            <li class="skill-item soft-skill flex items-center bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900 to-purple-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
+              <i class="fas fa-clock text-sm xs:text-base sm:text-lg md:text-xl text-purple-600 dark:text-purple-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Time Management</span>
             </li>
-            <li class="skill-item soft-skill flex items-center bg-purple-100 dark:bg-purple-900 p-3 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
-              <i class="fas fa-user-check text-xl sm:text-2xl text-purple-600 dark:text-purple-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Responsibility</span>
+            <li class="skill-item soft-skill flex items-center bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900 to-purple-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
+              <i class="fas fa-user-check text-sm xs:text-base sm:text-lg md:text-xl text-purple-600 dark:text-purple-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Responsibility</span>
             </li>
-            <li class="skill-item soft-skill flex items-center bg-purple-100 dark:bg-purple-900 p-3 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
-              <i class="fas fa-users text-xl sm:text-2xl text-purple-600 dark:text-purple-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Team Work</span>
+            <li class="skill-item soft-skill flex items-center bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900 to-purple-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
+              <i class="fas fa-users text-sm xs:text-base sm:text-lg md:text-xl text-purple-600 dark:text-purple-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Team Work</span>
             </li>
-            <li class="skill-item soft-skill flex items-center bg-purple-100 dark:bg-purple-900 p-3 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
-              <i class="fas fa-book-open text-xl sm:text-2xl text-purple-600 dark:text-purple-300 mr-3"></i>
-              <span class="text-base sm:text-lg text-gray-900 dark:text-white">Willingness to Learn</span>
+            <li class="skill-item soft-skill flex items-center bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900 to-purple-800 p-1 xs:p-1.5 sm:p-2 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition">
+              <i class="fas fa-book-open text-sm xs:text-base sm:text-lg md:text-xl text-purple-600 dark:text-purple-300 mr-1.5"></i>
+              <span class="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 dark:text-white">Willingness to Learn</span>
             </li>
           </ul>
         </div>
@@ -158,28 +155,24 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="min-h-[80vh] sm:min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-12 sm:py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 text-gray-900 dark:text-white">Contact Me</h2>
+  <section id="contact" class="min-h-[60vh] xs:min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 py-6 xs:py-8 sm:py-12 md:py-16 lg:py-20 pt-16">
+    <div class="container mx-auto px-4 xs:px-4 sm:px-6 md:px-8 lg:px-10">
+      <h2 class="sticky-title text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 xs:mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-900 dark:text-white">Contact Me</h2>
       <div class="max-w-lg mx-auto contact-content">
-        <p class="text-base sm:text-lg mb-6 text-center text-gray-900 dark:text-white">Interested in collaborating? Let's connect!</p>
-        <!-- Social Media Icons -->
-        <div class="flex justify-center space-x-4 sm:space-x-6">
-          <a href="mailto:twaiyy27@gmail.com" class="social-icon text-xl sm:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition"><i class="fas fa-envelope"></i></a>
-          <a href="https://github.com/Thantwyl" class="social-icon text-xl sm:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/thantwai-yanlinn-4b066b372" class="social-icon text-xl sm:text-2xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition"><i class="fab fa-linkedin"></i></a>
+        <p class="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-4 xs:mb-6 sm:mb-8 text-center text-gray-900 dark:text-white">Interested in collaborating? Let's connect!</p>
+        <div class="flex justify-center space-x-2 xs:space-x-3 sm:space-x-4 md:space-x-5 lg:space-x-6">
+          <a href="mailto:twaiyy27@gmail.com" class="social-icon text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/Thantwyl" class="social-icon text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/thantwai-yanlinn-4b066b372" class="social-icon text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900 dark:text-white hover:text-teal-400 dark:hover:text-teal-300 transition"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-6 bg-gray-800 dark:bg-gray-950 text-white text-center">
-    <p>© 2025 ThantWaiYanLinn. All rights reserved.</p>
+  <footer class="py-4 xs:py-5 sm:py-6 bg-gray-800 dark:bg-gray-950 text-white dark:text-white text-center">
+    <p class="text-xs xs:text-sm sm:text-base">© 2025 ThantWaiYanLinn. All rights reserved.</p>
   </footer>
 
-  <!-- Custom JavaScript -->
   <script src="js/script.js"></script>
 </body>
 </html>
